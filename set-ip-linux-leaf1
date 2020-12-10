@@ -1,0 +1,34 @@
+# The loopback network interface
+auto lo
+iface lo inet loopback
+auto lo:1
+iface lo:1 inet loopback
+auto lo:2
+iface lo:2 inet loopback
+
+
+# The primary network interface
+allow-hotplug ens3
+allow-hotplug ens4
+allow-hotplug ens5
+allow-hotplug ens6
+iface lo:1 inet static
+        address 3.3.3.3
+        netmask 255.255.255.255
+iface lo:2 inet static
+        address 33.33.33.33
+        netmask 255.255.255.255
+iface ens3 inet static
+        address 192.168.0.243
+        netmask 255.255.255.0
+iface ens4 inet static
+        address 10.22.22.3
+        netmask 255.255.255.0
+iface ens5 inet static
+        address 10.1.11.3
+        netmask 255.255.255.0
+iface ens6 inet static
+	address 10.1.22.3
+	netmask 255.255.255.0
+# This is an autoconfigured IPv6 interface
+#iface enp0s3 inet6 auto
